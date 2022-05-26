@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "61194771917",
+    "project_id": "tm-mobile-app-f5e2b",
+    "storage_bucket": "tm-mobile-app-f5e2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61194771917:android:aa31495826e31e7b0d3884",
+        "android_client_info": {
+          "package_name": "com.example.tm_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61194771917-nubatgqg93p1k18lupejhfunom9e9np0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc5fmdgR-LU46MMwISBYpLnN7UsOgSDJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61194771917-nubatgqg93p1k18lupejhfunom9e9np0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
