@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tm_mobile_app/constants/routes.dart';
 import 'package:tm_mobile_app/services/auth/auth_service.dart';
-import 'package:tm_mobile_app/views/dashboard_view.dart';
+
+import 'package:tm_mobile_app/views/complaint/complaint_form.dart';
+import 'package:tm_mobile_app/views/complaint/complaint_log.dart';
+import 'package:tm_mobile_app/views/complaint/dashboard_view.dart';
 import 'package:tm_mobile_app/views/login_view.dart';
 import 'package:tm_mobile_app/views/register_view.dart';
 import 'package:tm_mobile_app/views/verify_email_view.dart';
@@ -12,7 +15,7 @@ void main() {
     MaterialApp(
       title: 'Welcome to Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
       home: const Homepage(),
       routes: {
@@ -20,6 +23,8 @@ void main() {
         registerRoute: (context) => const RegisterView(),
         dashboardRoute: (context) => const DashboardView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
+        complainRoute: (context) => const ComplaintForm(),
+        compLogRoute: (context) => const ComplaintLogView(),
       },
     ),
   );
