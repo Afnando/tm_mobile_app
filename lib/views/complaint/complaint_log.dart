@@ -43,6 +43,7 @@ class _ComplaintLogViewState extends State<ComplaintLogView> {
               ),
               columns: const [
                 DataColumn(label: Text('Log Date')),
+                DataColumn(label: Text('PIC')),
                 DataColumn(label: Text('Issues')),
                 DataColumn(label: Text('RFSI')),
                 DataColumn(label: Text('Stakeholder')),
@@ -93,10 +94,10 @@ class CompData extends DataTableSource {
   DataRow getRow(int index) {
     return DataRow(cells: [
       DataCell(Text(complaintLog[index].logDate)),
+      DataCell(Text(complaintLog[index].pic)),
       DataCell(Text(complaintLog[index].issues)),
       DataCell(Text(complaintLog[index].rfsi)),
       DataCell(Text(complaintLog[index].stakeholder)),
-      DataCell(Text(complaintLog[index].pic)),
       DataCell(Text(complaintLog[index].owner)),
     ]);
   }

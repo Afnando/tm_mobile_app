@@ -271,7 +271,7 @@ class _ComplaintFormState extends State<ComplaintForm> {
 
               // ISSUES FIELD
               makeInput(
-                label: 'Help Needed /Issues / Challenges',
+                label: 'Help Needed / Issues / Challenges',
                 controller: _issues,
               ),
 
