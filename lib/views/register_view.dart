@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_mobile_app/constants/routes.dart';
 import 'package:tm_mobile_app/services/auth/auth_exceptions.dart';
 import 'package:tm_mobile_app/services/auth/auth_service.dart';
-import 'package:tm_mobile_app/utilities/show_error_dialog.dart';
+import 'package:tm_mobile_app/utilities/error_dialog.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
