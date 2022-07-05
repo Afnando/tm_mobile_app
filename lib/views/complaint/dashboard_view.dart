@@ -1,7 +1,10 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:tm_mobile_app/constants/routes.dart';
 import 'package:tm_mobile_app/enums/menu_action.dart';
 import 'package:tm_mobile_app/services/auth/auth_service.dart';
+import 'package:tm_mobile_app/services/cloud/cloud_complaint.dart';
+import 'package:tm_mobile_app/utilities/logout_dialog.dart';
 import 'package:tm_mobile_app/views/navigation_bar.dart';
 
 class DashboardView extends StatefulWidget {
@@ -52,31 +55,54 @@ class _DashboardViewState extends State<DashboardView> {
           )
         ],
       ),
-      body: const Text('Hello world'),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Hello'),
+            Container(
+              child: Column(
+                children: [
+                  StreamBuilder<Object>(
+                    stream: readComplaint(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text('Error');
+                        // } else if (snapshot.hasData) {
+                        //   getStakeHolder();
+                      } else {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                    },
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
 
-Future<bool> showLogOutDialog(BuildContext context) {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Sign Out'),
-        content: const Text('Are you sure you want to sign?'),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(false);
-              },
-              child: const Text('Cancel')),
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(true);
-              },
-              child: const Text('Log Out')),
-        ],
-      );
-    },
-  ).then((value) => value ?? false);
+late List<ComplaintLog> _stake = [];
+Map<String, double> getStakeHolder() {
+  Map<String, double> stakeMap = {};
+  for (var item in _stake) {
+    print(item.stakeholder);
+    if (stakeMap.containsKey(item.stakeholder) == false) {
+      stakeMap[item.stakeholder] = 1;
+    } else {
+      stakeMap.update(
+          item.stakeholder, (int) => stakeMap[item.stakeholder]! + 1);
+      // test[item.category] = test[item.category]! + 1;
+    }
+    print(stakeMap);
+  }
+  return stakeMap;
 }
+
+// Widget pieChartExampleOne() {
+//   return PieChart();
+// }

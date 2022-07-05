@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_mobile_app/constants/routes.dart';
 import 'package:tm_mobile_app/services/auth/auth_service.dart';
+import 'package:tm_mobile_app/utilities/logout_dialog.dart';
 
 class NavBar extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
@@ -152,28 +153,4 @@ class NavBar extends StatelessWidget {
         break;
     }
   }
-}
-
-Future<bool> showLogOutDialog(BuildContext context) {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Sign Out'),
-        content: const Text('Are you sure you want to sign?'),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(false);
-              },
-              child: const Text('Cancel')),
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(true);
-              },
-              child: const Text('Log Out')),
-        ],
-      );
-    },
-  ).then((value) => value ?? false);
 }
