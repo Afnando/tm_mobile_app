@@ -3,13 +3,15 @@ import 'package:tm_mobile_app/constants/routes.dart';
 import 'package:tm_mobile_app/services/auth/auth_service.dart';
 import 'package:tm_mobile_app/utilities/logout_dialog.dart';
 
+// ignore: use_key_in_widget_constructors
 class NavBar extends StatelessWidget {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
 
   @override
   Widget build(BuildContext context) {
-    final _name = 'user 1 anak lelaki user';
-    final _email = 'user1niboss@abc.com';
+    const _name = 'user 1 anak lelaki user';
+    // final _email = 'user1niboss@abc.com';
+    final user = AuthService.firebase().currentUser!;
 
     return Drawer(
       child: Material(
@@ -18,7 +20,7 @@ class NavBar extends StatelessWidget {
           children: <Widget>[
             buildHeader(
               name: _name,
-              email: _email,
+              email: user.email,
               // onClicked: null;
             ),
             Container(
@@ -76,6 +78,15 @@ class NavBar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'TM Mobile App',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 10),
               Text(
                 name,
                 style: const TextStyle(
@@ -86,7 +97,7 @@ class NavBar extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 email,
-                style: const TextStyle(fontSize: 15, color: Colors.black),
+                style: const TextStyle(fontSize: 18, color: Colors.black),
               ),
             ],
           ),
